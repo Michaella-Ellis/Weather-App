@@ -1,0 +1,80 @@
+h1,
+h2,
+h4,
+h6 {
+  color: #f7838d;
+  font-family: "PT Sans", Sans-Serif;
+}
+
+p {
+  font-family: "Bitter", Serif;
+}
+
+.container {
+  margin: 30px auto;
+  max-width: 600px;
+}
+.cities {
+  padding-bottom: 20px;
+  font-weight: bold;
+  padding-top: 5px;
+}
+
+.cities a {
+  margin-left: 20px;
+  font-family: "PT Sans", Sans-Serif;
+}
+a:link {
+  color: #f7838d;
+  text-decoration: none;
+}
+.cities a:hover {
+  color: red;
+}
+.cities a:visited {
+  color: red;
+}
+.search-bar {
+  padding-bottom: 20px;
+}
+
+.search-bar .search {
+  border-color: #f7838d;
+  color: #f7838d;
+}
+.current-loca {
+  border-color: #f7838d;
+  color: #f7838d;
+  margin: 5px;
+  width: 200px;
+}
+.search-bar .search:hover {
+  background: #f7838d;
+  color: white;
+  border: none;
+}
+.current-loca:hover {
+  background: #f7838d;
+  color: white;
+  border: none;
+}
+
+ul li {
+  list-style-type: none;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+.current-temp {
+  margin-right: 15px;
+  font-size: 60px;
+}
+.ww {
+  display: inline-flex;
+}
+
+.ww-item {
+  padding: 10px;
+  text-align: center;
+}
