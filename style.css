@@ -66,6 +66,9 @@ ul {
   margin: 0;
   padding: 0;
 }
+li {
+  text-transform: capitalize;
+}
 .current-temp {
   margin-right: 15px;
   font-size: 60px;

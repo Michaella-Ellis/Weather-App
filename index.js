@@ -35,7 +35,7 @@ function getCity(event) {
   let input = document.querySelector("#city-input");
   let city = input.value;
   let apiKey = "281450ec88936f4fa8ee9864682b49a0";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(displayTemp);
 }
@@ -46,6 +46,20 @@ function displayTemp(response) {
   changeCity.innerHTML = `${response.data.name}`;
   let changeTemp = document.querySelector("#currentTemp");
   changeTemp.innerHTML = `${temp}`;
+
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = response.data.weather[0].description;
+
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+
+  celsTemp = response.data.main.temp;
 }
 
 let searchForm = document.querySelector("#search-form");
@@ -54,9 +68,23 @@ searchForm.addEventListener("submit", getCity);
 //Celcius to Fahrenheit
 function showFahrTemp(event) {
   event.preventDefault();
-  let fahrTemp = (0 * 9) / 5 + 32;
 
-  alert(fahrTemp);
+  let tempElement = document.querySelector("#currentTemp");
+  let fahrTemp = (celsTemp * 9) / 5 + 32;
+  tempElement.innerHTML = Math.round(fahrTemp);
 }
+
+function showCelsTemp(event) {
+  event.preventDefault();
+
+  let tempElement = document.querySelector("#currentTemp");
+  tempElement.innerHTML = Math.round(celsTemp);
+}
+
+let celsTemp = null;
+
 let fahrenheitLink = document.querySelector("#fahr-link");
 fahrenheitLink.addEventListener("click", showFahrTemp);
+
+let celsiusLink = document.querySelector("#cels-link");
+celsiusLink.addEventListener("click", showCelsTemp);

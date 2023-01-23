@@ -58,20 +58,26 @@
         <div class="col-4">
           <h2 id="city">Phoenix</h2>
           <ul>
+            <li>
+              <img
+                id="icon"
+                src="http://openweathermap.org/img/wn/04d@2x.png"
+              />
+            </li>
             <li id="date-time">Sunday 4:03pm</li>
-            <li>Partly Cloudy</li>
+            <li id="description">Partly Cloudy</li>
           </ul>
         </div>
         <div class="col-4 d-flex justify-content-center">
           <h1 class="current-temp" id="currentTemp">56</h1>
           <h1 class="current-temp">°</h1>
-          <p>°C</p>
+          <p><a href="#" id="cels-link">°C</a></p>
           <p>|</p>
           <p><a href="#" id="fahr-link">°F</a></p>
         </div>
         <div class="col-4 stats">
           <ul>
-            <li>Wind: 14 mph</li>
+            <li>Wind: <span id="wind">14</span> mph</li>
           </ul>
         </div>
       </div>
