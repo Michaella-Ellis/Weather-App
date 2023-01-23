@@ -50,3 +50,13 @@ function displayTemp(response) {
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", getCity);
+
+//Celcius to Fahrenheit
+function showFahrTemp(event) {
+  event.preventDefault();
+  let fahrTemp = (0 * 9) / 5 + 32;
+
+  alert(fahrTemp);
+}
+let fahrenheitLink = document.querySelector("#fahr-link");
+fahrenheitLink.addEventListener("click", showFahrTemp);
