@@ -60,6 +60,8 @@ function displayTemp(response) {
   );
 
   celsTemp = response.data.main.temp;
+
+  displayForcast();
 }
 
 let searchForm = document.querySelector("#search-form");
@@ -88,3 +90,29 @@ fahrenheitLink.addEventListener("click", showFahrTemp);
 
 let celsiusLink = document.querySelector("#cels-link");
 celsiusLink.addEventListener("click", showCelsTemp);
+
+function displayForcast() {
+  let forcastElement = document.querySelector("#forcast");
+  let forcastHTML = `<div class ="row">`;
+  let days = ["Sun", "Mon", "Tue"];
+  days.forEach(function (day) {
+    forcastHTML =
+      forcastHTML +
+      `
+        <div class="col-2">
+          <div class = "weather-focast-date">${day}</div>
+          <img
+            src="http://openweathermap.org/img/wn/50d@2x.png"
+            width="45"
+          />
+          <div class="weather-forcast-temperatures">
+            <span class="weather-forcast-temperature-max"> 19° </span>
+            <span class="weather-forcast-temperature-max"> 13° </span>
+          </div>
+        </div>
+        `;
+  });
+
+  forcastHTML = forcastHTML + `</div>`;
+  forcastElement.innerHTML = forcastHTML;
+}
