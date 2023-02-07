@@ -40,6 +40,13 @@ function getCity(event) {
   axios.get(apiUrl).then(displayTemp);
 }
 
+function getForcast(coordinates) {
+  let apiKey = "7784a4cd4aa2e0c25ead7bd96d585b8a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayForcast);
+}
+
 function displayTemp(response) {
   let temp = Math.round(response.data.main.temp);
   let changeCity = document.querySelector("#city");
@@ -61,7 +68,7 @@ function displayTemp(response) {
 
   celsTemp = response.data.main.temp;
 
-  displayForcast();
+  getForcast(response.data.coord);
 }
 
 let searchForm = document.querySelector("#search-form");
@@ -91,7 +98,7 @@ fahrenheitLink.addEventListener("click", showFahrTemp);
 let celsiusLink = document.querySelector("#cels-link");
 celsiusLink.addEventListener("click", showCelsTemp);
 
-function displayForcast() {
+function displayForcast(response) {
   let forcastElement = document.querySelector("#forcast");
   let forcastHTML = `<div class ="row">`;
   let days = ["Sun", "Mon", "Tue"];
